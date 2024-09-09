@@ -1,0 +1,181 @@
+@import 'bio';
+
+.hero {
+    background-image: url('../assets/images/hero-shows.jpg');
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        height: unset;
+
+        .hero__subtitle {
+            padding: 8px 0;
+        }
+
+        iframe {
+            margin-top: 8px;
+            width: 100%;
+            height: 100px;
+        }
+    }
+}
+
+.section {
+    padding: 24px 0 16px;
+
+    h2 {
+        padding: 16px;
+    }
+
+    .tickets-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .ticket {
+            padding: 0 16px;
+
+            .field {
+                padding: 8px 0;
+                font-size: 16px;
+                line-height: 20px;
+
+                .label {
+                    font-family: 'AvenirNextLTProBold', sans-serif;
+                    font-size: 12px;
+                    line-height: 20px;
+                    color: $secondary-text-color;
+                    padding-bottom: 4px;
+                }
+
+                .date {
+                    font-family: 'AvenirNextLTProDemi', sans-serif;
+                }
+            }
+
+            .action {
+                padding: 8px 0;
+
+                button {
+                    font-family: 'AvenirNextLTProDemi', sans-serif;
+                    font-size: 16px;
+                    line-height: 20px;
+                }
+            }
+        }
+    }
+}
+
+.tickets-table {
+    display: none;
+    flex-direction: column;
+
+    &__head {
+        display: flex;
+        font-family: 'AvenirNextLTProBold', sans-serif;
+        font-size: 12px;
+        line-height: 20px;
+        color: $secondary-text-color;
+
+        div {
+            width: 25%;
+            padding: 24px 18px;
+        }
+    }
+
+    .table-row {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        line-height: 20px;
+        border-bottom: 1px solid $divider-color;
+        cursor: pointer;
+
+        &__date {
+            font-family: 'AvenirNextLTProDemi', sans-serif;
+        }
+
+        div {
+            width: 25%;
+            padding: 24px 18px;
+        }
+
+        button {
+            font-family: 'AvenirNextLTProDemi', sans-serif;
+            font-size: 15px;
+            line-height: 20px;
+            min-width: 150px;
+        }
+
+
+
+        &:hover {
+            background-color: $secondary-color-light;
+        }
+
+        &:active,
+        &.select {
+            background-color: $divider-color;
+        }
+    }
+}
+
+
+// Tablet 
+@include tablet {
+    .section {
+        padding: 24px;
+    }
+
+    .hero__content {
+        iframe {
+            width: 480px;
+            height: 120px;
+        }
+    }
+
+    .section .tickets-list {
+        display: none;
+    }
+
+    .tickets-table {
+        display: flex;
+    }
+}
+
+// Desktop (Large screens, 1280px and up)
+@include desktop {
+    .hero {
+        &__content {
+            height: 85vh;
+            padding: 0;
+
+            &--row {
+                display: flex;
+                width: 1020px;
+                margin: auto;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            iframe {
+                width: 440px;
+                height: 160px;
+            }
+        }
+    }
+
+    .section {
+        padding: 48px 0 32px;
+        width: 1020px;
+        margin: auto;
+        display: flex;
+        gap: 36px;
+
+        .tickets-table {
+            width: 100%;
+        }
+    }
+}
